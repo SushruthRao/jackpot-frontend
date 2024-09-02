@@ -443,8 +443,9 @@ function RoundEndTime() {
    
     const difference = endTime - now;
     const diffdate= new Date(difference).getSeconds()
-    console.log("END TIME = " + endTime + "\n NOW =" + now + "\n difference = " + new Date(difference).getSeconds() ); 
-    return Math.max(Math.floor(diffdate / 1000), 0); // Convert milliseconds to seconds
+    console.log("END TIME = " + endTime + "\n NOW =" + now + "\n difference = " + new Date(difference).getSeconds() );
+    console.log("Diff date = " + diffdate ); 
+    return diffdate; // Convert milliseconds to seconds
   };
 
   // Initialize state with the calculated time left
