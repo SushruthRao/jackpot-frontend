@@ -434,7 +434,6 @@ function Bets() {
     </div>
   );
 }
-
 function RoundEndTime() {
   const { roundEndTime } = useContext(RoundStatusContext);
 
@@ -442,7 +441,8 @@ function RoundEndTime() {
   const calculateTimeLeft = (endTime) => {
     const now = Date.now();
     const difference = endTime - now;
-    return Math.max(Math.floor(difference / 1000), 0); // Convert milliseconds to seconds
+    const timeInSeconds = Math.floor(difference / 1000);
+    return timeInSeconds > 0 ? timeInSeconds : 0;
   };
 
   // Initialize state with the calculated time left
@@ -465,6 +465,37 @@ function RoundEndTime() {
     </div>
   );
 }
+
+// function RoundEndTime() {
+//   const { roundEndTime } = useContext(RoundStatusContext);
+
+//   // Function to calculate time left
+//   const calculateTimeLeft = (endTime) => {
+//     const now = Date.now();
+//     const difference = endTime - now;
+//     return Math.max(Math.floor(difference / 1000), 0); // Convert milliseconds to seconds
+//   };
+
+//   // Initialize state with the calculated time left
+//   const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(roundEndTime));
+
+//   useEffect(() => {
+//     // Update time left every second
+//     const intervalId = setInterval(() => {
+//       setTimeLeft(calculateTimeLeft(roundEndTime));
+//     }, 1000);
+
+//     // Clean up interval on unmount
+//     return () => clearInterval(intervalId);
+//   }, [roundEndTime]);
+
+//   return (
+//     <div className="round-end-time">
+//       <h2>Round EndTime</h2>
+//       <p>{`Time left: ${timeLeft} seconds`}</p>
+//     </div>
+//   );
+// }
 
 function CoinsAmount({ userId }) {
   const [coins, setCoins] = useState(0);
