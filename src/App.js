@@ -440,7 +440,7 @@ function RoundEndTime() {
   // Function to calculate time left
   const calculateTimeLeft = (endTime) => {
     const now = Date.now();
-    const difference = endTime - now;
+    const difference = new Date(endTime - now).getSeconds();
     const timeInSeconds = Math.floor(difference / 1000);
     return timeInSeconds > 0 ? timeInSeconds : 0;
   };
