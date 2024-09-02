@@ -440,9 +440,11 @@ function RoundEndTime() {
   // Function to calculate time left
   const calculateTimeLeft = (endTime) => {
     const now = Date.now();
-    const difference = new Date(endTime - now).getSeconds();
-    const timeInSeconds = Math.floor(difference / 1000);
-    return timeInSeconds > 0 ? timeInSeconds : 0;
+   
+    const difference = endTime - now;
+    const diffdate= new Date(difference).getSeconds()
+    console.log("END TIME = " + endTime + "\n NOW =" + now + "\n difference = " + new Date(difference).getSeconds() ); 
+    return Math.max(Math.floor(diffdate / 1000), 0); // Convert milliseconds to seconds
   };
 
   // Initialize state with the calculated time left
