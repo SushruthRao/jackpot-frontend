@@ -64,7 +64,7 @@ h1, h2, p {
 }
 .container-inside > div {
   padding: 10px; /* Adds padding inside the container's children */
-  background-color: #fff; /* Sets a white background for better contrast */
+  background-color: #000; /* Sets a white background for better contrast */
   border-radius: 8px; /* Rounds the corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
 }
