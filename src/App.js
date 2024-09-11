@@ -450,7 +450,7 @@ function RoundEndTime() {
 
   // Initialize state with the calculated time left
   const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(roundEndTime));
-
+  const { roundActive } = useContext(RoundStatusContext);
   useEffect(() => {
     // Update time left every second
     const intervalId = setInterval(() => {
@@ -464,7 +464,7 @@ function RoundEndTime() {
   return (
     <div className="round-end-time">
       <h2>Round EndTime</h2>
-      <p>{`Time left: ${timeLeft} seconds`}</p>
+      <p>{roundActive ? `Time left: ${timeLeft} seconds` :`Waiting for next round` }</p>
     </div>
   );
 }
